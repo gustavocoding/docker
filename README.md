@@ -1,4 +1,4 @@
 docker
 ======
 
-Docker images
+Docker image for hadoop
