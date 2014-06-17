@@ -1,10 +1,8 @@
 #!/bin/bash
 
-HADOOP_IMAGE="gustavonalle/hadoop_base"
-
 function run()
 {
-  echo "$(docker run -d  gustavonalle/hadoop-base)"
+  echo "$(docker run -d  gustavonalle/hadoop-base-small)"
 }
 
 function ip()
