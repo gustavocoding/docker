@@ -2,7 +2,7 @@
 
 function run()
 {
-  echo "$(docker run -d  gustavonalle/hadoop-base-small)"
+  echo "$(docker run -d  gustavonalle/hadoop)"
 }
 
 function ip()
