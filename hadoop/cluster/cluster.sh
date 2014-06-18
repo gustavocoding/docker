@@ -43,11 +43,15 @@ function remove_slaves()
  exec_cmd $1 "> /opt/hadoop/hadoop-1.1.1/conf/slaves"
 }
 
+echo "Creating a cluster of $N slaves"
 
 IDMASTER=$(run)
 sleep 10 
 
 IP_MASTER=$(ip $IDMASTER)
+
+echo "Master created, ip address is $IP_MASTER"
+
 copy_keys $IP_MASTER
 replace_hosts $IP_MASTER
 set_master $IP_MASTER $IP_MASTER
@@ -61,7 +65,7 @@ do
  IP_SLAVE=$(ip $IDSLAVE)
  replace_hosts $IP_SLAVE
  set_master $IP_SLAVE $IP_MASTER
- echo -n "Slave $IP_SLAVE configured"
+ echo  "Slave $IP_SLAVE configured"
  add_slave $IP_MASTER $IP_SLAVE
 done
 
@@ -69,4 +73,4 @@ echo "Starting process"
 exec_cmd $IP_MASTER "/etc/init.d/hadoop-master start"  
 exec_cmd $IP_MASTER "/etc/init.d/hadoop-jobtracker start"  
 
-echo -n "Cluster started. Master is $IP_MASTER"
+echo  "Cluster started. Master is $IP_MASTER"
