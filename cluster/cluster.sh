@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-N=4
+N=2
 
 function run()
 {
