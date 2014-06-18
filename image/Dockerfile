@@ -1,15 +1,14 @@
 FROM fedora
 MAINTAINER gustavonalle
 
-RUN yum -y install net-tools git puppet openssh-server yum-utils java-1.7.0-openjdk-devel
-RUN /usr/sbin/sshd-keygen
-RUN git clone https://github.com/gustavonalle/puppet /puppet
-RUN puppet apply --modulepath=puppet/ -e 'include hadoop'
-
-RUN yum -y remove puppet git yum-utils
-RUN yum -y autoremove
-RUN yum clean all
-RUN rm -Rf /opt/hadoop/*.gz  /opt/hadoop/hadoop-1.1.1/src/ /puppet/
+RUN (yum -y install net-tools git puppet openssh-server yum-utils java-1.7.0-openjdk-devel; \
+     /usr/sbin/sshd-keygen; \
+     git clone https://github.com/gustavonalle/puppet /puppet; \
+     puppet apply --modulepath=puppet/ -e 'include hadoop'; \
+     yum -y remove puppet git yum-utils; \
+     yum -y autoremove; \
+     yum clean all; \
+     rm -Rf /opt/hadoop/*.gz  /opt/hadoop/hadoop-1.1.1/src/ /puppet/)
 
 ADD java_home.sh /home/hadoop/.bashrc
 ADD java_home.sh /etc/profile.d/java_home.sh

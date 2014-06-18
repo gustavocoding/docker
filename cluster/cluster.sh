@@ -1,4 +1,7 @@
 #!/bin/bash
+set -e
+
+N=4
 
 function run()
 {
@@ -30,28 +33,40 @@ function set_master()
   exec_cmd $1 "echo '$2' > /opt/hadoop/hadoop-1.1.1/conf/masters"
 }
 
-function set_slave()
+function add_slave()
 {
-  exec_cmd $1 "echo '$2' > /opt/hadoop/hadoop-1.1.1/conf/slaves"
+  exec_cmd $1 "echo '$2' >> /opt/hadoop/hadoop-1.1.1/conf/slaves"
 }
 
+function remove_slaves() 
+{
+ exec_cmd $1 "> /opt/hadoop/hadoop-1.1.1/conf/slaves"
+}
+
+
 IDMASTER=$(run)
-IDSLAVE=$(run)
+sleep 10 
 
 IP_MASTER=$(ip $IDMASTER)
-IP_SLAVE=$(ip $IDSLAVE)
-
 copy_keys $IP_MASTER
 replace_hosts $IP_MASTER
-replace_hosts $IP_SLAVE
 set_master $IP_MASTER $IP_MASTER
-set_master $IP_SLAVE $IP_MASTER
-set_slave $IP_MASTER $IP_SLAVE
+remove_slaves $IP_MASTER
+
+START=1
+for (( c=$START; c<=$N; c++)) 
+do
+ IDSLAVE=$(run) 
+ sleep 10 
+ IP_SLAVE=$(ip $IDSLAVE)
+ replace_hosts $IP_SLAVE
+ set_master $IP_SLAVE $IP_MASTER
+ echo -n "Slave $IP_SLAVE configured"
+ add_slave $IP_MASTER $IP_SLAVE
+done
 
 echo "Starting process"
 exec_cmd $IP_MASTER "/etc/init.d/hadoop-master start"  
 exec_cmd $IP_MASTER "/etc/init.d/hadoop-jobtracker start"  
 
 echo -n "Cluster started. Master is $IP_MASTER"
-echo "Slave is $IP_SLAVE"
-
