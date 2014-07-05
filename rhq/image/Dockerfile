@@ -1,7 +1,7 @@
 FROM fedora
 MAINTAINER gustavonalle
 
-RUN (yum -y install unzip postgresql-server net-tools openssh-server yum-utils java-1.7.0-openjdk-devel; \
+RUN (yum -y install supervisor unzip postgresql-server net-tools openssh-server yum-utils java-1.7.0-openjdk-devel; \
      /usr/sbin/sshd-keygen; \
      yum -y autoremove; \
      yum clean all; \
