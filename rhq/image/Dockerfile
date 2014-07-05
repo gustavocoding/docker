@@ -1,0 +1,20 @@
+FROM fedora
+MAINTAINER gustavonalle
+
+RUN (yum -y install unzip postgresql-server net-tools openssh-server yum-utils java-1.7.0-openjdk-devel; \
+     /usr/sbin/sshd-keygen; \
+     yum -y autoremove; \
+     yum clean all; \
+     curl -L "http://sourceforge.net/projects/rhq/files/latest/download?source=files" > /usr/local/rhq.zip; \
+     unzip /usr/local/rhq.zip && rm /usr/local/rhq.zip)
+
+ADD java_home.sh /root/.bashrc
+ADD java_home.sh /etc/profile.d/java_home.sh
+
+RUN echo "root:root" | chpasswd
+
+RUN sed -i -e 's/session    required     pam_loginuid.so/#session    required     pam_loginuid.so/' /etc/pam.d/sshd
+
+RUN runuser -l postgres -c "initdb -D /var/lib/pgsql/data/"
+
+EXPOSE 22 7080
