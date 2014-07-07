@@ -28,5 +28,5 @@ Services (SSH, PostgreSQL, RHQ Agent, Storage Node, Agent) are managed by [Super
 Docker registry
 ---
 
-The images is being build on the docker regsitry at [gustavonalle/rhq-411-server](https://registry.hub.docker.com/u/gustavonalle/rhq-411-server/)
+The image is being build on the docker regsitry at [gustavonalle/rhq-411-server](https://registry.hub.docker.com/u/gustavonalle/rhq-411-server/)
 
