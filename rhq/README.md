@@ -13,7 +13,7 @@ Usage
 ---
 To run RHQ, run the script [launch.sh](https://github.com/gustavonalle/docker/blob/master/rhq/launch.sh), it will print the IP adress of the RHQ server
 
-After that, point the browser to http://<address>:7080/ and login using 'rhqadmin' as user and password
+After that, point the browser to http://address:7080/ and login using 'rhqadmin' as user and password
 
 SSH is open, root password is 'root'
 
