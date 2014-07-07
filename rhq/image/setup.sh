@@ -8,7 +8,7 @@ sed -i -e 's/jboss.bind.address=/jboss.bind.address=0.0.0.0/' /rhq-server-4.11.0
 sed -i -e 's/#rhq.storage.seeds=/rhq.storage.seeds=localhost/' /rhq-server-4.11.0/bin/rhq-storage.properties
 sed -i -e 's/#rhq.storage.hostname=/rhq.storage.hostname=localhost/' /rhq-server-4.11.0/bin/rhq-storage.properties
 
-/rhq-server-4.11.0/bin/rhqctl install --start
+/rhq-server-4.11.0/bin/rhqctl install
 
 /rhq-server-4.11.0/bin/rhqctl start
 
