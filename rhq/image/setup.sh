@@ -10,15 +10,15 @@ sed -i -e 's/#rhq.storage.hostname=/rhq.storage.hostname=localhost/' /rhq-server
 
 /rhq-server-4.11.0/bin/rhqctl install --start
 
-#echo "Waiting for server to initialize"
-#until $(curl --silent -L http://localhost:7080/coregui#Dashboards | grep -i Welcome > /dev/null )
-#do
-#   printf '.'
-#   sleep 5
-#done
-#echo "done."
+/rhq-server-4.11.0/bin/rhqctl start
+
+echo "Waiting for server to initialize"
+until $(grep -R "Server started" /rhq-server-4.11.0/logs/ > /dev/null)
+do
+   printf '.'
+   sleep 5
+done
+echo "done."
 
 /rhq-server-4.11.0/bin/rhqctl stop 
 runuser -l postgres -c "pg_ctl -m fast stop"
-
-
