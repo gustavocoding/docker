@@ -25,3 +25,8 @@ RHQ runs on top of Postgresql, Fedora 20 and Java 1.7.
 
 Services (SSH, PostgreSQL, RHQ Agent, Storage Node, Agent) are managed by [Supervisor](http://supervisord.org)
 
+Docker registry
+---
+
+The images is being build on the docker regsitry at [gustavonalle/rhq-411-server](https://registry.hub.docker.com/u/gustavonalle/rhq-411-server/)
+
