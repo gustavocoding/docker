@@ -1,7 +1,7 @@
 RHQ dockerized
 ====
 
-Ready to use, SSH enabled [RHQ 4.11](http://rhq.jboss.org/) docker image
+Ready to use, SSH enabled [RHQ 4.12](http://rhq.jboss.org/) docker image
 
 
 Requirement
@@ -29,5 +29,5 @@ Services (SSH, PostgreSQL, RHQ Agent, Storage Node, Agent) are managed by [Super
 Docker registry
 ---
 
-The image is being build on the docker regsitry at [gustavonalle/rhq-411-server](https://registry.hub.docker.com/u/gustavonalle/rhq-411-server/)
+The image is being build on the docker regsitry at [gustavonalle/rhq-412-server](https://registry.hub.docker.com/u/gustavonalle/rhq-412-server/)
 

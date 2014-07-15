@@ -1,1 +1,1 @@
-docker build -t="gustavonalle/rhq-server" .
+docker build -t="gustavonalle/rhq-412-server" .
