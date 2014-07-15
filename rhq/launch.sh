@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IMAGE=gustavonalle/rhq-411-server
+IMAGE=gustavonalle/rhq-412-server
 
 function run()
 {
