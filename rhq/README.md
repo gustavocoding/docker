@@ -7,6 +7,7 @@ Ready to use, SSH enabled [RHQ 4.11](http://rhq.jboss.org/) docker image
 Requirement
 ---
 Docker 1.x
+Linux kernel 3.14, see [Docker kernel 3.15 issues](https://github.com/dotcloud/docker/issues/6792)
 
 
 Usage
