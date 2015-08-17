@@ -5,7 +5,7 @@ ENV INFINISPAN_VERSION 8.0.0.Beta3
 ENV SPARK_VERSION 1.4.0
 ENV SPARK_HADOOP_VERSION 2.6 
 
-RUN  (yum -y install tar unzip supervisor java-1.8.0-openjdk-devel; \
+RUN  (yum -y install words tar unzip supervisor java-1.8.0-openjdk-devel; \
      yum -y autoremove; \
      yum -y clean all;) 
 
