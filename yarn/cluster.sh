@@ -1,11 +1,11 @@
 #!/bin/bash
 set -e
 
-N=2
+N=${1,-2}
 
 function run()
 {
-  echo "$(docker run -d -it --name $1  gustavonalle/yarn)"
+  echo "$(docker run -d -it --name $1 gustavonalle/yarn)"
 }
 
 function ip()
@@ -35,6 +35,7 @@ function remove_slaves()
 }
 
 echo "Creating a cluster of $N slaves"
+docker run -d --hostname resolvable -v /var/run/docker.sock:/tmp/docker.sock -v /etc/resolv.conf:/tmp/resolv.conf mgood/resolvable
 
 IDMASTER=$(run master)
 
