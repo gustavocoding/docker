@@ -59,4 +59,5 @@ echo "Starting process"
 docker exec -it master sh -c -l 'start-dfs.sh'
 docker exec -it master sh -c -l 'start-yarn.sh'
 
-echo  "Cluster started. Master is $IP_MASTER"
+echo  "Cluster started. HDFS UI on http://$IP_MASTER:50070/dfshealth.html#tab-datanode"
+echo  "YARN UI on http://$IP_MASTER:8088/cluster/nodes"
