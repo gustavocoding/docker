@@ -4,7 +4,7 @@ MAINTAINER gustavonalle
 ENV HADOOP_VERSION 2.7.1
 
 RUN (yum -y update; \
-     yum -y install supervisor iputils iproute openssh-clients net-tools openssh-server tar unzip java-1.8.0-openjdk-devel; \
+     yum -y install words ruby supervisor iputils iproute openssh-clients net-tools openssh-server tar unzip java-1.8.0-openjdk-devel; \
      yum -y autoremove; \
      yum clean all;)
 

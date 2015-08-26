@@ -2,10 +2,11 @@
 set -e
 
 N=${1:-2}
+CUR_DIR="$PWD"
 
 function run()
 {
-  echo "$(docker run -d -it --name $1 gustavonalle/yarn)"
+  echo "$(docker run -v $CUR_DIR:/usr/local/sample -d -it --name $1 gustavonalle/yarn)"
 }
 
 function ip()
