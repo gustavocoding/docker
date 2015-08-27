@@ -3,6 +3,16 @@ Hadoop Yarn dockerized
 
 This is a set of scripts to create a full Hadoop Yarn cluster, each node inside a docker container.
 
+Quick start
+---
+
+To create a 3 node YARN cluster, run:
+
+```
+bash <(curl -s https://raw.githubusercontent.com/gustavonalle/docker/master/yarn/cluster.sh)
+```
+
+
 Usage
 ---
 Run the script cluster/cluster.sh passing the number of slaves: 
