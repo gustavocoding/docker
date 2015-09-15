@@ -15,7 +15,7 @@ bash <(curl -s https://raw.githubusercontent.com/gustavonalle/docker/master/flin
 
 Usage
 ---
-Run the script cluster/cluster.sh passing the number of slaves: 
+Run the script cluster.sh passing the number of slaves: 
 
 ```
 ./cluster.sh 3
@@ -24,4 +24,4 @@ Run the script cluster/cluster.sh passing the number of slaves:
 Details
 ---
 Each container is based on fedora 21, java 1.8 and uses Apache Flink standalone mode. 
-The master container will run the jobmanager, and the other container will run the taskmagers only.
+The master container will run the jobmanager, and the other containers will run the taskmagers only.
