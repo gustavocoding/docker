@@ -2,7 +2,7 @@ FROM fedora:21
 MAINTAINER gustavonalle
 
 ENV FLINK_VERSION 0.9.1
-ENV FLINK_HADOOP hadoop1 
+ENV FLINK_HADOOP hadoop27
 
 RUN (yum -y update; \
      yum -y install hostname words ruby supervisor iputils iproute openssh-clients net-tools openssh-server tar unzip java-1.8.0-openjdk-devel; \
