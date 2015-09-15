@@ -5,13 +5,12 @@ FROM jboss/base-jdk:8
 ENV INFINISPAN_SERVER_HOME /opt/jboss/infinispan-server
 
 # Set the INFINISPAN_VERSION env variable
-ENV INFINISPAN_VERSION 8.0.0.Final
+ENV INFINISPAN_VERSION 8.0.1.Final
 
 # Download and unzip Infinispan server
 RUN cd $HOME && curl "https://repo1.maven.org/maven2/org/infinispan/server/infinispan-server-build/$INFINISPAN_VERSION/infinispan-server-build-$INFINISPAN_VERSION.zip" | bsdtar -xf - && mv $HOME/infinispan-server-$INFINISPAN_VERSION $HOME/infinispan-server && chmod +x /opt/jboss/infinispan-server/bin/*.sh
 
 COPY start.sh /opt/jboss/infinispan-server/bin/
-
 
 USER root
 
