@@ -36,7 +36,7 @@ function remove_slaves()
 }
 
 echo "Creating a cluster of $N slaves"
-docker run -d --hostname resolvable -v /var/run/docker.sock:/tmp/docker.sock -v /etc/resolv.conf:/tmp/resolv.conf mgood/resolvable
+docker run -d --name resolvable --hostname resolvable -v /var/run/docker.sock:/tmp/docker.sock -v /etc/resolv.conf:/tmp/resolv.conf mgood/resolvable
 
 IDMASTER=$(run master)
 
